@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DestinoViaje } from './../models/destinos-viaje.model';
 
 @Component({
   selector: 'app-lista-destinos',
@@ -6,12 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-destinos.component.css']
 })
 export class ListaDestinosComponent implements OnInit {
-destinos: string[];
+destinos: DestinoViaje[];
   constructor() { 
-    this.destinos=['Puerto Vallarta', 'Cancun', 'Guallavitos', 'Playa del Carmen'];
+    this.destinos=[];
   }
 
   ngOnInit(): void {
+
+
+  }
+
+  guardar(nombre:string, url:string):boolean{
+    this.destinos.push(new DestinoViaje(nombre,url));
+    console.log(this.destinos);
+    
+    
+    
+    return false;
   }
 
 }
